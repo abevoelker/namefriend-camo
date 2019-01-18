@@ -7,6 +7,8 @@ using a neural network
 
 ## Installation
 
+### CPU (slow)
+
 ```
 pipenv install
 ```
@@ -17,6 +19,23 @@ or Docker
 docker build -t namefriend-camo .
 docker run -it --rm namefriend-camo
 ```
+
+### GPU (fast)
+
+1. Install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
+
+2. Use gpu-enabled `Dockerfile` and `Pipfile`
+
+    ```
+    cp -a gpu-support/* ./
+    ```
+
+3. Build and run Docker container using nvidia runtime
+
+    ```
+    docker build -t namefriend-camo .
+    docker run --runtime=nvidia -it --rm namefriend-camo
+    ```
 
 ## Usage
 
